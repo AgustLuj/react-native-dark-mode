@@ -1,0 +1,12 @@
+{
+  "name": "dark-mode",
+  "displayName": "dark-mode",
+  "expo": {
+    "name": "dark-mode",
+    "slug": "dark-mode",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
