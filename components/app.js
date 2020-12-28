@@ -12,7 +12,7 @@ class App extends Component {
             d: false,
             dark:false,
         };
-        this.getDark();
+        this.getDark();//prueba
     }
     async getDark(){
       let value = await AsyncStorage.getItem('@dark');
