@@ -12,15 +12,13 @@ class App extends Component {
             d: false,
             dark:false,
         };
-        this.getDark();
     }
-    async getDark(){
+    async componentDidMount(){
       let value = await AsyncStorage.getItem('@dark');
       if(value === null || value == 'false'){
-        this.setState({d:true,dark:false});
+        this.setState({dark:false});
       }else{
-        global.dark = true;
-        this.setState({d:true,dark:true});
+        this.setState({dark:true});
       }
     }
     async setDark(){
@@ -36,15 +34,13 @@ class App extends Component {
         let {d,dark}=this.state;
         let style =(dark)?Dark:Light;
         return (
-          (d)?(
-            <View style={style.container}>
-              <Text style={style.text}>Open up App.js to start working on your app!</Text>
-              <Button
-                title="Press me"
-                onPress={() => this.setDark()}
-              />
-            </View>
-          ):null
+          <View style={style.container}>
+            <Text style={style.text}>Open up App.js to start working on your app!</Text>
+            <Button
+              title="Press me"
+              onPress={() => this.setDark()}
+            />
+          </View>
         );
     }
 }
