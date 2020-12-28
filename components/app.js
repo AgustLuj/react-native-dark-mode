@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { registerRootComponent } from 'expo';
 import React, { Component } from 'react';
 import {Light,Dark} from '../styles';
 import { StyleSheet, Text, View,Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Header } from 'react-native-elements';
 
 class App extends Component {
     constructor(props) {
@@ -34,12 +33,20 @@ class App extends Component {
         let {d,dark}=this.state;
         let style =(dark)?Dark:Light;
         return (
-          <View style={style.container}>
-            <Text style={style.text}>Open up App.js to start working on your app!</Text>
-            <Button
-              title="Press me"
-              onPress={() => this.setDark()}
-            />
+          <View style = {{flex:1}}>
+            <Header
+                      placement="left"
+                      leftComponent={{ icon: 'home', color: '#fff' ,onPress: () => null }}
+                      rightComponent={{ icon: 'menu', color: '#fff',onPress: () => null }}
+                      containerStyle={style.headerStyle}
+                      />
+            <View style={style.container}>
+              <Text style={style.text}>Open up App.js to start working on your app!</Text>
+              <Button
+                title="Press me"
+                onPress={() => this.setDark()}
+                />
+            </View>
           </View>
         );
     }
