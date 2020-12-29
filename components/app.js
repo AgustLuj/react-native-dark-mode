@@ -23,10 +23,10 @@ class App extends Component {
     async setDark(){
       try{
         this.setState({d:false});
-        await AsyncStorage.setItem('@dark', (global.dark)?'false':'true');
-        this.setState({d:true,dark:(this.state.dark)?false:true});
+        await AsyncStorage.setItem('@dark', (this.state.dark)?'false':'true');
+        this.setState({dark:(this.state.dark)?false:true});
       }catch{
-        this.setState({d:true,dark:false});
+        this.setState({dark:false});
       }
     }
     render() {
